@@ -288,19 +288,23 @@ a.info-card:hover{transform:translateY(-2px)}
   .steps{grid-template-columns:1fr 1fr}
 }
 @media (max-width:800px){
-  /* full-screen opaque menu, hidden IN PLACE (fade) — never parked off-screen,
-     so it can't create horizontal scroll */
-  .main-nav{position:fixed;inset:0;width:100%;height:100%;background:var(--cream);
-    flex-direction:column;align-items:stretch;gap:0;padding:84px 24px 28px;
-    opacity:0;visibility:hidden;transform:translateY(-6px);
-    transition:opacity .25s ease,transform .25s ease,visibility .25s ease;
-    z-index:58;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  /* compact dropdown anchored under the header button — sized to its text,
+     all links visible at once, never off-screen (no horizontal scroll) */
+  .header-inner{position:relative}
+  .main-nav{position:absolute;top:calc(100% + 10px);right:0;left:auto;
+    width:max-content;max-width:min(78vw,300px);
+    background:var(--cream);border:1px solid var(--line);border-radius:14px;
+    box-shadow:var(--shadow-lg);
+    flex-direction:column;align-items:stretch;gap:2px;padding:8px;
+    opacity:0;visibility:hidden;transform:translateY(-8px) scale(.98);transform-origin:top right;
+    transition:opacity .2s ease,transform .2s ease,visibility .2s ease;z-index:59}
   .main-nav.open{opacity:1;visibility:visible;transform:none}
-  .main-nav a{font-size:1.18rem;padding:17px 6px;border-bottom:1px solid var(--line);color:var(--green-900)}
+  .main-nav a{font-size:1.02rem;padding:11px 16px;border-radius:9px;color:var(--green-900);white-space:nowrap}
+  .main-nav a:not(:last-child){border-bottom:1px solid var(--line)}
   .main-nav a::after{display:none}
+  .main-nav a:hover,.main-nav a:active{background:var(--green-100)}
   .nav-toggle{display:flex;position:relative;z-index:61}
   .header-actions .btn-call{display:none}
-  body.menu-open{overflow:hidden}
 }
 @media (max-width:640px){
   body{font-size:16px;padding-bottom:60px}
