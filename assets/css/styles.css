@@ -288,13 +288,17 @@ a.info-card:hover{transform:translateY(-2px)}
   .steps{grid-template-columns:1fr 1fr}
 }
 @media (max-width:800px){
-  .main-nav{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--cream);
-    flex-direction:column;gap:6px;padding:88px 26px 26px;box-shadow:var(--shadow-lg);
-    transform:translateX(100%);transition:transform .28s ease;z-index:59}
+  /* full-screen opaque menu — no bleed-through, page locked behind it */
+  .main-nav{position:fixed;inset:0;width:100%;height:100%;background:var(--cream);
+    flex-direction:column;align-items:stretch;gap:0;padding:84px 24px 28px;
+    transform:translateX(100%);transition:transform .28s ease;z-index:58;
+    overflow-y:auto;-webkit-overflow-scrolling:touch}
   .main-nav.open{transform:translateX(0)}
-  .main-nav a{font-size:1.1rem;padding:12px 0;border-bottom:1px solid var(--line)}
-  .nav-toggle{display:flex}
+  .main-nav a{font-size:1.18rem;padding:17px 6px;border-bottom:1px solid var(--line);color:var(--green-900)}
+  .main-nav a::after{display:none}
+  .nav-toggle{display:flex;position:relative;z-index:61}
   .header-actions .btn-call{display:none}
+  body.menu-open{overflow:hidden}
 }
 @media (max-width:640px){
   body{font-size:16px;padding-bottom:60px}

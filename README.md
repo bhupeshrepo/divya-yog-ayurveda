@@ -15,6 +15,12 @@ index.html            # the whole site (bilingual content inline)
 assets/css/styles.css # styles
 assets/js/main.js      # language toggle, mobile nav, form, animations
 favicon.svg           # tab icon
+assets/img/           # brand images:
+  profile-picture.png #   512x512 — Gmail / Google / WhatsApp profile pic
+  logo-horizontal.png #   transparent logo (letterhead, docs, WhatsApp)
+  og-cover.png        #   1200x630 — link preview (WhatsApp/Facebook share)
+  gbp-cover.png       #   1280x720 — Google Business Profile cover
+GOOGLE-BUSINESS-PROFILE.md  # full Google Business setup pack (copy-paste ready)
 robots.txt            # SEO
 sitemap.xml           # SEO
 .nojekyll             # tells GitHub Pages to serve files as-is
@@ -39,7 +45,7 @@ python -m http.server 8080
 
 The form uses **[Web3Forms](https://web3forms.com)** — free, no backend, sends leads straight to an email inbox.
 
-1. Go to https://web3forms.com → enter the email where you want leads (e.g. the clinic's Gmail) → you get an **Access Key** by email.
+1. Go to https://web3forms.com → enter the clinic's lead inbox **`divyayogayurveda379@gmail.com`** → you get an **Access Key** by email.
 2. Open `index.html`, find:
    ```html
    <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY" />
@@ -49,7 +55,7 @@ The form uses **[Web3Forms](https://web3forms.com)** — free, no backend, sends
 
 > **Until a key is added, the form auto-falls back to WhatsApp** — it opens WhatsApp with the filled details prewritten, so no lead is lost. Call and WhatsApp buttons already work with no setup.
 
-**Numbers wired in:** Call/WhatsApp `+91 8814853189` and `+91 8700979554`.
+**Number wired in:** Call/WhatsApp `+91 8814853189`. Leads email to `divyayogayurveda379@gmail.com`.
 
 ---
 

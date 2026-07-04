@@ -41,15 +41,21 @@
   var navToggle = document.getElementById("navToggle");
   var nav = document.getElementById("main-nav");
   if (navToggle && nav) {
-    navToggle.addEventListener("click", function () {
-      var open = nav.classList.toggle("open");
+    var setMenu = function (open) {
+      nav.classList.toggle("open", open);
+      body.classList.toggle("menu-open", open);
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    navToggle.addEventListener("click", function () {
+      setMenu(!nav.classList.contains("open"));
     });
     nav.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        nav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+    // close on Escape
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("open")) setMenu(false);
     });
   }
 
