@@ -57,6 +57,12 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && nav.classList.contains("open")) setMenu(false);
     });
+    // close on tap/click outside the menu
+    document.addEventListener("click", function (e) {
+      if (!nav.classList.contains("open")) return;
+      if (nav.contains(e.target) || navToggle.contains(e.target)) return;
+      setMenu(false);
+    });
   }
 
   /* ---------- Year ---------- */
